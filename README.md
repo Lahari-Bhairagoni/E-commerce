@@ -82,15 +82,15 @@ The frontend interacts with backend APIs to register users, place orders, etc.
   * Modular Express Routes
 
 Technologies Used
- -Frontend: HTML, CSS, JavaScript
- -Backend: Node.js, Express.js
- -Data Storage: JSON files (users.json, products.json)
- -Dev Tools: Git, GitHub, VS Code
+ * Frontend: HTML, CSS, JavaScript
+ * Backend: Node.js, Express.js
+ * Data Storage: JSON files (users.json, products.json)
+ * Dev Tools: Git, GitHub, VS Code
 
 To-Do / Improvements
- -Add real database (MongoDB, SQL)
- -Implement payment gateway
- -Add admin dashboard
- -Product search & filters
- -Responsive design polish
+ * Add real database (MongoDB, SQL)
+ * Implement payment gateway
+ * Add admin dashboard
+ * Product search & filters
+ * Responsive design polish
 
