@@ -63,12 +63,19 @@ The backend uses .json files (products.json, users.json) for data storage instea
 
 **Frontend**
 Go to the root directory (E-commerce/).
+
 Open index.html in any browser.
+
 Navigate the site using:
+
 Home → index.html
+
 Products → products.html
+
 Cart → cart.html
+
 Checkout → checkout.html
+
 Login/Register → login.html, register.html
 
 The frontend interacts with backend APIs to register users, place orders, etc.
