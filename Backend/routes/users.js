@@ -1,9 +1,17 @@
-// backend/routes/products.js
-const express = require('express');
-const router = express.Router();
+router.post("/login", (req, res) => {
+  const { email, password } = req.body;
 
-router.get('/', (req, res) => {
-  res.send('Users API is working!');
+  const users = JSON.parse(fs.readFileSync("data/users.json", "utf-8"));
+
+  const user = users.find(u => u.email === email && u.password === password);
+
+  if (user) {
+    res.json({
+      message: "Login successful",
+      token: "fake-jwt-token",
+      username: user.username
+    });
+  } else {
+    res.status(401).json({ message: "Invalid email or password" });
+  }
 });
-
-module.exports = router;

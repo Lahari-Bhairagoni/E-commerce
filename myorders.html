@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders - RiiMart</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .orders-section {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 20px;
+    }
+
+    .order-card {
+      background: #f9fafb;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      padding: 20px;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .order-header {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      font-size: 0.95rem;
+      color: #334155;
+    }
+
+    .order-items {
+      margin-top: 15px;
+    }
+
+    .item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      gap: 16px;
+    }
+
+    .item img {
+      width: 70px;
+      height: 70px;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .item-details {
+      flex: 1;
+    }
+
+    .item-details h4 {
+      margin: 0;
+      font-size: 1rem;
+      color: #1e293b;
+    }
+
+    .item-details p {
+      margin: 4px 0;
+      font-size: 0.9rem;
+      color: #64748b;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">🛒 RiiMart</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="products.html">Products</a></li>
+    <li><a href="cart.html">Cart</a></li>
+    <li><a href="myorders.html">My Orders</a></li>
+  </ul>
+</header>
+
+<section class="orders-section">
+  <h2>My Orders</h2>
+  <div id="ordersContainer">
+    <!-- Orders will load here -->
+  </div>
+</section>
+
+<footer>
+  <p>&copy; 2025 RiiMart. All rights reserved.</p>
+</footer>
+
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const user = JSON.parse(localStorage.getItem("riimart_user"));
+    if (!user || !user.email) {
+      alert("Please login to view your orders.");
+      window.location.href = "login.html";
+      return;
+    }
+
+    try {
+      const res = await fetch(`https://e-commerce-shopping-cart-rc7k.onrender.com/api/orders?email=${user.email}`);
+      const orders = await res.json();
+      const container = document.getElementById("ordersContainer");
+
+      if (orders.length === 0) {
+        container.innerHTML = "<p>No orders found.</p>";
+        return;
+      }
+
+      orders.forEach(order => {
+        const orderDiv = document.createElement("div");
+        orderDiv.className = "order-card";
+        orderDiv.innerHTML = `
+          <div class="order-header">
+            <span><strong>Order ID:</strong> ${order.id || "N/A"}</span>
+            <span><strong>Date:</strong> ${new Date(order.date).toLocaleDateString()}</span>
+            <span><strong>Total:</strong> ₹${order.total}</span>
+          </div>
+          <div class="order-items">
+            ${order.items.map(item => `
+              <div class="item">
+                <img src="${item.image}" alt="${item.name}" />
+                <div class="item-details">
+                  <h4>${item.name}</h4>
+                  <p>Quantity: ${item.quantity}</p>
+                  <p>Price: ₹${item.price}</p>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        `;
+        container.appendChild(orderDiv);
+      });
+
+    } catch (err) {
+      console.error("Error fetching orders", err);
+      document.getElementById("ordersContainer").innerHTML = "<p>Error loading orders.</p>";
+    }
+  });
+</script>
+
+</body>
+</html>
