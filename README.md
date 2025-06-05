@@ -90,15 +90,20 @@ The frontend interacts with backend APIs to register users, place orders, etc.
 
 Technologies Used
  * Frontend: HTML, CSS, JavaScript
+ * Responsive Design :Optimized for desktops and mobiles
  * Backend: Node.js, Express.js
  * API testing : postman
  * Data Storage: JSON files (users.json, products.json)
  * Dev Tools: Git, GitHub, VS Code
 
-To-Do / Improvements
- * Add real database (MongoDB, SQL)
- * Implement payment gateway
- * Add admin dashboard
- * Product search & filters
- * Responsive design polish
+Future Enhancements:
+* Admin dashboard for product/inventory control
+
+* Payment gateway integration (like Razorpay/Stripe)
+
+* Email notifications for order confirmation
+
+* Rating/review system for products
+ 
+* Responsive design polish
 
