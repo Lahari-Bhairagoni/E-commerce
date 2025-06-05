@@ -91,6 +91,7 @@ The frontend interacts with backend APIs to register users, place orders, etc.
 Technologies Used
  * Frontend: HTML, CSS, JavaScript
  * Backend: Node.js, Express.js
+ * API testing : postman
  * Data Storage: JSON files (users.json, products.json)
  * Dev Tools: Git, GitHub, VS Code
 
