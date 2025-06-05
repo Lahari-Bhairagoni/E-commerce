@@ -40,7 +40,7 @@ E-commerce/
 ### Prerequisites
 
 - Node.js installed
-- Git (optional for cloning)
+- Git
 
 
 ---
