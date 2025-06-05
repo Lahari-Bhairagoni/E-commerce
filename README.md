@@ -59,6 +59,8 @@ E-commerce/
      node server.js
 Server will run on: http://localhost:5000
 
+You can access the project by using this link: https://lahari-bhairagoni.github.io/E-commerce/
+
 The backend uses .json files (products.json, users.json) for data storage instead of a database.
 
 **Frontend**
