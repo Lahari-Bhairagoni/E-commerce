@@ -185,7 +185,8 @@
     }
 
     try {
-      const res = await fetch("https://e-commerce-shopping-cart-rc7k.onrender.com/api/register", {
+      const res = await fetch('https://e-commerce-shopping-cart-rc7k.onrender.com/api/users/register', {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -193,7 +194,13 @@
         body: JSON.stringify({ username, email, password })
       });
 
-      const data = await res.json();
+      let data = {};
+try {
+  data = await res.json();
+} catch (err) {
+  data.message = "Unexpected server response";
+}
+
 
       if (res.ok) {
         alert("🎉 Registration successful! Redirecting to login...");
