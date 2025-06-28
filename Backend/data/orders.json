@@ -1,0 +1,146 @@
+[
+  {
+    "customer": {
+      "fullName": "Lahari",
+      "email": "lahari06@gmail.com",
+      "address": "Hyderabad, abc colony",
+      "city": "Hyderabad",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "2",
+        "name": "Men's Watch",
+        "quantity": 1,
+        "price": 3999
+      }
+    ],
+    "total": 3999
+  },
+  {
+    "customer": {
+      "fullName": "Lahari",
+      "email": "lahari06@gmail.com",
+      "address": "Hyderabad, abc colony",
+      "city": "Hyderabad",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "3",
+        "name": "Women's Handbag",
+        "quantity": 1,
+        "price": 1799
+      },
+      {
+        "productId": "4",
+        "name": "Smartphone",
+        "quantity": 1,
+        "price": 14999
+      }
+    ],
+    "total": 16798
+  },
+  {
+    "customer": {
+      "fullName": "Lahari",
+      "email": "lahari06@gmail.com",
+      "address": "Hyderabad, abc colony",
+      "city": "Hyderabad",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "3",
+        "name": "Women's Handbag",
+        "quantity": 1,
+        "price": 1799
+      },
+      {
+        "productId": "4",
+        "name": "Smartphone",
+        "quantity": 1,
+        "price": 14999
+      }
+    ],
+    "total": 16798
+  },
+  {
+    "customer": {
+      "fullName": "Lahari",
+      "email": "lahari06@gmail.com",
+      "address": "Hyderabad, abc colony",
+      "city": "Hyderabad",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "3",
+        "name": "Women's Handbag",
+        "quantity": 1,
+        "price": 1799
+      },
+      {
+        "productId": "4",
+        "name": "Smartphone",
+        "quantity": 1,
+        "price": 14999
+      }
+    ],
+    "total": 16798
+  },
+  {
+    "customer": {
+      "fullName": "John",
+      "email": "john@example.com",
+      "address": "HYDERABAD",
+      "city": "HYDERABAD",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "3",
+        "name": "Women's Handbag",
+        "quantity": 1,
+        "price": 1799
+      },
+      {
+        "productId": "tshirt-men",
+        "name": "Classic Men T-Shirt",
+        "quantity": 1,
+        "price": 499
+      },
+      {
+        "productId": "2",
+        "name": "Men's Watch",
+        "quantity": 1,
+        "price": 3999
+      }
+    ],
+    "total": 6297
+  },
+  {
+    "customer": {
+      "fullName": "John",
+      "email": "john@example.com",
+      "address": "HYDERABAD",
+      "city": "HYDERABAD",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "3",
+        "name": "Women's Handbag",
+        "quantity": 2,
+        "price": 1799
+      }
+    ],
+    "total": 3598
+  }
+]

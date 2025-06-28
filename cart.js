@@ -38,7 +38,7 @@ function updateCartUI() {
         <img src="${item.image}" alt="${item.name}" />
         <div class="cart-item-details">
           <div class="cart-item-name">${item.name}</div>
-          <div class="cart-item-price">$${item.price.toFixed(2)}</div>
+          <div class="cart-item-price">₹${item.price.toFixed(2)}</div>
           <div class="cart-item-quantity">
             <button class="quantity-btn decrease">−</button>
             <div class="quantity-value">${item.quantity}</div>
@@ -109,7 +109,7 @@ function removeItem(id) {
 
 document.getElementById('proceed-btn').onclick = () => {
   // Redirect to transaction page (you can create this page next)
-  window.location.href = 'transaction.html';
+  window.location.href = 'checkout.html';
 };
 
 // Initialize cart UI on page load

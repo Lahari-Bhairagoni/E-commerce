@@ -152,7 +152,8 @@
     const password = document.getElementById("password").value;
 
     try {
-      const res = await fetch("https://e-commerce-shopping-cart-rc7k.onrender.com/api/users/login", {
+      const res = await fetch("http://localhost:5000/api/users/login", {
+
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -163,13 +164,15 @@
       const data = await res.json();
 
       if (res.ok) {
-        // Save JWT token
-        localStorage.setItem("token", data.token);
-        localStorage.setItem("username", data.username); // Optional
+  localStorage.setItem("token", data.token);
+  localStorage.setItem("username", data.username); // Optional
+  localStorage.setItem("userEmail", email);        // ✅ Needed for myorders.html
 
-        alert("✅ Login successful!");
-        window.location.href = "index.html"; // Or redirect wherever you want
-      } else {
+  alert("✅ Login successful!");
+  window.location.href = "index.html";
+}
+
+ else {
         alert("❌ " + (data.message || "Login failed"));
       }
     } catch (err) {
@@ -179,8 +182,9 @@
 
   // Theme toggle logic (no change)
   const themeSwitch = document.getElementById("themeSwitch");
-  const currentTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", currentTheme);
+const currentTheme = localStorage.getItem("theme") || "light";
+document.documentElement.setAttribute("data-theme", currentTheme);
+if (themeSwitch) {
   themeSwitch.checked = currentTheme === "dark";
 
   themeSwitch.addEventListener("change", () => {
@@ -188,6 +192,8 @@
     document.documentElement.setAttribute("data-theme", newTheme);
     localStorage.setItem("theme", newTheme);
   });
+}
+
 </script>
 
 </body>

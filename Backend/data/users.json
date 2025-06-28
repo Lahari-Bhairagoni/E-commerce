@@ -1,1 +1,67 @@
-[]
+    [
+    {
+        "username": "john",
+        "email": "john@example.com",
+        "password": "123456"
+    },
+    {
+        "username": "vaishu",
+        "email": "vaish@gmail.com",
+        "password": "vaish@123!"
+    },
+    {
+        "username": "vyshu",
+        "email": "vysh@gmail.com",
+        "password": "vaish@123!"
+    },
+    {
+        "username": "amit",
+        "email": "amit@gmail.com",
+        "password": "amit@123!"
+    },
+    {
+        "username": "sid",
+        "email": "sid@gmail.com",
+        "password": "sid@123!"
+    },
+    {
+        "username": "kavya",
+        "email": "kavya@gmail.com",
+        "password": "kavya@123!"
+    },
+    {
+        "username": "jumbo",
+        "email": "jumbo@gmail.com",
+        "password": "jumbo@123!"
+    },
+    {
+        "username": "java",
+        "email": "java@gmail.com",
+        "password": "java@123!"
+    },
+    {
+        "username": "class",
+        "email": "class@gmail.com",
+        "password": "class@123!"
+    },
+    {
+        "username": "leela",
+        "email": "leela@gmail.com",
+        "password": "leela@123!"
+    },
+    {
+        "username": "chand",
+        "email": "chand@gmail.com",
+        "password": "chand@123!"
+    },
+    {
+        "username": "rags",
+        "email": "rags@gmail.com",
+        "password": "rags@123!"
+    },
+    {
+        "username": "lahari",
+        "email": "lahari06@gmail.com",
+        "password": "lahari@123!"
+    }
+    ]
