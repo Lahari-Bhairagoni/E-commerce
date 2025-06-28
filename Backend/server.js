@@ -7,7 +7,7 @@ const usersRoute = require('./routes/users');
 const ordersRoute = require('./routes/orders');
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000; // ✅ This is the fix
 
 app.use(cors());
 app.use(bodyParser.json());
