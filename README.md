@@ -1,5 +1,4 @@
 
-
 ```markdown
 # 🛒 RiiMart – E-Commerce Shopping Cart Web App
 
@@ -19,13 +18,13 @@ RiiMart is a feature-rich shopping cart website that allows users to:
 
 ---
 
-##  Live Demo
+## Live Demo
 
 | Component | Hosted Link |
 |----------|-------------|
-|  You can access the project by using this link: | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
-|  Backend (Render) :      | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
-|  Frontend(Netlify) :     | [ https://jolly-melomakarona-49026a.netlify.app/]( https://jolly-melomakarona-49026a.netlify.app/) |
+|  Project Access | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
+| ⚙ Backend (Render) | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
+| 🖥 Frontend (Netlify) | [https://jolly-melomakarona-49026a.netlify.app/](https://jolly-melomakarona-49026a.netlify.app/) |
 
 ---
 
@@ -37,7 +36,7 @@ RiiMart is a feature-rich shopping cart website that allows users to:
 - LocalStorage for session/cart
 - Hosted via GitHub Pages / Netlify
 
-###  Backend
+### Backend
 - Node.js
 - Express.js
 - REST APIs (users, products, orders)
@@ -45,15 +44,15 @@ RiiMart is a feature-rich shopping cart website that allows users to:
 - CORS enabled
 
 ###  Testing & Dev Tools
-- **Postman** – to test all API endpoints (`/api/users`, `/api/orders`, `/api/products`)
+- **Postman** – API testing (`/api/users`, `/api/orders`, `/api/products`)
 - **Git & GitHub** – version control and deployment
-- **Docker** – containerization (optional use for local deployment)
-- **Netlify** – frontend alternative deployment
+- **Docker** – containerization for local development
+- **Netlify** – frontend deployment
 - **Render** – backend deployment
 
 ---
 
-## Folder Structure
+##  Folder Structure
 
 ```
 
@@ -79,7 +78,7 @@ E-commerce/
 
 ---
 
-##  Core Features
+## Core Features
 
 -  User Authentication (Register/Login/Logout)
 -  Add to Cart & Remove Items
@@ -91,11 +90,12 @@ E-commerce/
 
 ---
 
-##  Docker 
+##  Docker Setup
 
 You can run both frontend and backend in Docker containers locally for isolated testing.
 
-### Backend Dockerfile
+###  Backend Dockerfile
+
 ```Dockerfile
 FROM node:18-alpine
 WORKDIR /app
@@ -118,7 +118,7 @@ EXPOSE 80
 
 ##  How to Run Locally
 
-###  Backend
+### Backend
 
 ```bash
 cd Backend
@@ -128,15 +128,13 @@ node server.js
 
 ###  Frontend
 
-```bash
-Open index.html from docs/ in browser
-OR
+Open `docs/index.html` in browser
+**OR**
 Use Docker to serve via nginx
-```
 
 ---
 
-## API Testing with Postman
+##  API Testing with Postman
 
 | Endpoint              | Method | Description             |
 | --------------------- | ------ | ----------------------- |
@@ -146,7 +144,7 @@ Use Docker to serve via nginx
 | `/api/orders/:email`  | GET    | Fetch orders by email   |
 | `/api/products`       | GET    | Product list (test API) |
 
-All these routes were tested via Postman for response status, validation, and payload correctness.
+ All routes were tested using **Postman** for validation and response status.
 
 ---
 
