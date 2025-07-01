@@ -1,13 +1,13 @@
 
 
 ```markdown
-# RiiMart – E-Commerce Shopping Cart Web App
+#RiiMart – E-Commerce Shopping Cart Web App
 
 RiiMart is a full-stack e-commerce web application developed using modern web technologies and DevOps practices.
 
 ---
 
-## Project Overview
+##Project Overview
 
 RiiMart allows users to:
 - Register and log in
@@ -19,7 +19,7 @@ RiiMart allows users to:
 
 ---
 
-## Live Demo
+##Live Demo
 
 | Component          | Hosted Link                                                                 |
 |--------------------|------------------------------------------------------------------------------|
@@ -29,15 +29,15 @@ RiiMart allows users to:
 
 ---
 
-## Tech Stack
+##Tech Stack
 
-### Frontend
+###Frontend
 - HTML5, CSS3, JavaScript
 - DOM manipulation
 - LocalStorage for session and cart data
 - Hosted via GitHub Pages and Netlify
 
-### Backend
+###Backend
 - Node.js
 - Express.js
 - RESTful APIs for users, products, and orders
@@ -53,7 +53,7 @@ RiiMart allows users to:
 
 ---
 
-## Folder Structure
+##Folder Structure
 
 ```
 
@@ -77,7 +77,7 @@ E-commerce/
 
 ---
 
-## Features
+##Features
 
 - User registration and login
 - Add to cart and remove from cart
@@ -88,11 +88,11 @@ E-commerce/
 
 ---
 
-## Docker
+##Docker
 
 Use Docker for local containerized deployment.
 
-### Backend Dockerfile
+###Backend Dockerfile
 
 ```Dockerfile
 FROM node:18-alpine
