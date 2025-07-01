@@ -1,107 +1,124 @@
 
-# 🛒 RiiMart - E-Commerce Web Application
 
-RiiMart is a responsive, full-stack e-commerce web app built using HTML, CSS, JavaScript (frontend) and Node.js + Express (backend). The application supports user authentication, product browsing, cart management, checkout with multiple payment options (Cash/Card/UPI), and order history tracking.
+```markdown
+# 🛒 RiiMart – E-Commerce Shopping Cart Web App
 
----
-
-##  Live URLs
-
-- 🔗 **Frontend (Netlify)**: [https://your-netlify-site.netlify.app](https://your-netlify-site.netlify.app)
-- 🔗 **Backend (Render)**: [https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)
--  🔗 **You can access the project by using this link:**:
-
+Welcome to **RiiMart**, a full-stack e-commerce web application built using modern web technologies and DevOps practices.
 
 ---
 
-##  Features
+## 📌 Project Overview
 
-###  User Features
--  Register & Login (JWT-based authentication)
--  Dynamic Login/Logout toggle
--  View and add products to cart
--  Cart management with total calculation
--  Checkout with:
-  - Cash on Delivery (direct redirect to confirmation)
-  - Card/UPI (redirect to secure transaction page)
--  My Orders page – shows previous orders using email
--  Confirmation page after successful order/payment
--  Protected routes for placing orders (token required)
-
-###  Admin/Dev Features
--  Orders and users stored in `data/orders.json` and `data/users.json`
--  Dockerized frontend (served via Nginx)
--  Backend hosted on Render
--  Frontend deployed via Netlify (and Docker locally)
+RiiMart is a feature-rich shopping cart website that allows users to:
+- Register and login
+- Browse products
+- Add to cart and checkout
+- Simulate transactions
+- View their previous orders
+- Logout securely
 
 ---
 
-##  Technologies Used
+##  Live Demo
 
-###  Frontend:
-- HTML5, CSS3
-- JavaScript (Vanilla)
-- Responsive Design
-- LocalStorage for session/cart management
+| Component | Hosted Link |
+|----------|-------------|
+|  You can access the project by using this link: | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
+|  Backend (Render) :      | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
+|  Frontend(Netlify) :     | [ https://jolly-melomakarona-49026a.netlify.app/]( https://jolly-melomakarona-49026a.netlify.app/) |
 
-###  Backend:
+---
+
+##  Tech Stack
+
+###  Frontend
+- HTML5, CSS3, JavaScript
+- DOM manipulation
+- LocalStorage for session/cart
+- Hosted via GitHub Pages / Netlify
+
+###  Backend
 - Node.js
 - Express.js
-- JWT (jsonwebtoken) for login protection
-- File-based storage using JSON (no DB used)
+- REST APIs (users, products, orders)
+- File-based data storage using JSON
+- CORS enabled
 
-###  DevOps / Deployment:
-- **Docker** (Nginx for frontend)
-- **Render** for backend deployment
-- **Netlify** for frontend deployment
-- **GitHub** for version control
+###  Testing & Dev Tools
+- **Postman** – to test all API endpoints (`/api/users`, `/api/orders`, `/api/products`)
+- **Git & GitHub** – version control and deployment
+- **Docker** – containerization (optional use for local deployment)
+- **Netlify** – frontend alternative deployment
+- **Render** – backend deployment
 
 ---
 
-##  Folder Structure
+## Folder Structure
 
 ```
 
 E-commerce/
-├── Backend/
-│   ├── data/
-│   ├── routes/
-│   ├── server.js
-├── Frontend/
-│   ├── index.html
-│   ├── checkout.html
-│   ├── transaction.html
-│   ├── confirmation.html
-│   ├── myorders.html
-│   ├── login.html
-│   ├── register.html
-│   ├── products.html
-│   ├── js/
-│   └── css/
-├── Dockerfile
+│
+├── Backend/                 # Node.js backend files
+│   ├── routes/             # Route files for APIs
+│   ├── data/               # JSON files (users, orders)
+│   └── server.js           # Main backend server
+│
+├── docs/                   # Frontend files (for GitHub Pages)
+│   ├── index.html          # Home page
+│   ├── \*.html              # Other pages (login, register, etc.)
+│   ├── css/                # Stylesheets
+│   └── js/                 # JavaScript files
+│
+├── Dockerfile              # Backend Dockerfile
 ├── docker-compose.yml
-└── README.md
+├── README.md
+└── .gitignore
 
 ````
+
+---
+
+##  Core Features
+
+-  User Authentication (Register/Login/Logout)
+-  Add to Cart & Remove Items
+-  Checkout with payment form
+-  Transaction confirmation
+-  My Orders page (user-specific)
+-  Session maintained using LocalStorage
+-  API testing with **Postman**
+
+---
+
+##  Docker 
+
+You can run both frontend and backend in Docker containers locally for isolated testing.
+
+### Backend Dockerfile
+```Dockerfile
+FROM node:18-alpine
+WORKDIR /app
+COPY Backend/ .
+RUN npm install
+EXPOSE 5000
+CMD ["node", "server.js"]
+````
+
+### Frontend Dockerfile
+
+```Dockerfile
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY docs/ /usr/share/nginx/html
+EXPOSE 80
+```
 
 ---
 
 ##  How to Run Locally
 
-###  Frontend (Docker):
-```bash
-# Build image
-docker build -t riimart-frontend .
-
-# Run container
-docker run -d -p 8080:80 riimart-frontend
-````
-
-Visit: `http://localhost:8080`
-
-
-
-###  Backend (Node.js)
+###  Backend
 
 ```bash
 cd Backend
@@ -109,17 +126,27 @@ npm install
 node server.js
 ```
 
-Visit: `http://localhost:5000/api/orders`
+###  Frontend
 
+```bash
+Open index.html from docs/ in browser
+OR
+Use Docker to serve via nginx
+```
 
+---
 
-##  API Endpoints
+## API Testing with Postman
 
-* `POST /api/users/register` – Register new user
-* `POST /api/users/login` – Login and get token
-* `POST /api/orders` – Place new order (requires token)
-* `GET /api/orders/:email` – Get orders by email
+| Endpoint              | Method | Description             |
+| --------------------- | ------ | ----------------------- |
+| `/api/users/register` | POST   | Register new user       |
+| `/api/users/login`    | POST   | Login existing user     |
+| `/api/orders/`        | POST   | Submit an order         |
+| `/api/orders/:email`  | GET    | Fetch orders by email   |
+| `/api/products`       | GET    | Product list (test API) |
 
+All these routes were tested via Postman for response status, validation, and payload correctness.
 
-
+---
 
