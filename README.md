@@ -1,4 +1,5 @@
 
+
 ```markdown
 # RiiMart – E-Commerce Shopping Cart Web App
 
@@ -20,10 +21,10 @@ RiiMart allows users to:
 
 ## Live Demo
 
-| Component       | Hosted Link                                                                 |
-|------------------|------------------------------------------------------------------------------|
-| GitHub Pages     | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
-| Backend (Render) | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
+| Component          | Hosted Link                                                                 |
+|--------------------|------------------------------------------------------------------------------|
+| GitHub Pages       | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
+| Backend (Render)   | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
 | Frontend (Netlify) | [https://jolly-melomakarona-49026a.netlify.app/](https://jolly-melomakarona-49026a.netlify.app/) |
 
 ---
@@ -63,11 +64,10 @@ E-commerce/
 │   └── server.js
 │
 ├── docs/
-│   ├── index.html
-│   ├── \*.html (login, register, etc.)
-│   ├── css/
-│   └── js/
-│
+├── index.html
+├── \*.html (login, register, etc.)
+├── css/
+├── js/
 ├── Dockerfile
 ├── docker-compose.yml
 ├── README.md
@@ -127,22 +127,22 @@ node server.js
 ### Frontend
 
 Open `docs/index.html` in a browser
-OR
+**OR**
 Use Docker to serve using the frontend Dockerfile
 
 ---
 
 ## API Endpoints (Postman Ready)
 
-| Endpoint              | Method | Description              |
-| --------------------- | ------ | ------------------------ |
-| `/api/users/register` | POST   | Register a new user      |
-| `/api/users/login`    | POST   | Log in an existing user  |
-| `/api/orders/`        | POST   | Submit a new order       |
-| `/api/orders/:email`  | GET    | Retrieve orders by email |
-| `/api/products`       | GET    | Get product list (test)  |
+| Endpoint            | Method | Description              |
+| ------------------- | ------ | ------------------------ |
+| /api/users/register | POST   | Register a new user      |
+| /api/users/login    | POST   | Log in an existing user  |
+| /api/orders/        | POST   | Submit a new order       |
+| /api/orders/\:email | GET    | Retrieve orders by email |
+| /api/products       | GET    | Get product list (test)  |
 
-````
+```
 
----
+
 
