@@ -230,5 +230,92 @@
       }
     ],
     "total": 1799
+  },
+  {
+    "customer": {
+      "fullName": "john",
+      "email": "john@example.com",
+      "address": "Hyderabad, abc colony",
+      "city": "Hyderabad",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "3",
+        "name": "Women's Handbag",
+        "quantity": 4,
+        "price": 1799
+      },
+      {
+        "productId": "headphones",
+        "name": "Bluetooth Headphones",
+        "quantity": 1,
+        "price": 1599
+      },
+      {
+        "productId": "2",
+        "name": "Men's Watch",
+        "quantity": 1,
+        "price": 1999
+      }
+    ],
+    "total": 10794
+  },
+  {
+    "customer": {
+      "fullName": "john",
+      "email": "john@example.com",
+      "address": "Hyderabad, abc colony",
+      "city": "Hyderabad",
+      "zip": "500054"
+    },
+    "paymentMethod": "cod",
+    "items": [
+      {
+        "productId": "3",
+        "name": "Women's Handbag",
+        "quantity": 4,
+        "price": 1799
+      },
+      {
+        "productId": "headphones",
+        "name": "Bluetooth Headphones",
+        "quantity": 1,
+        "price": 1599
+      },
+      {
+        "productId": "2",
+        "name": "Men's Watch",
+        "quantity": 1,
+        "price": 1999
+      }
+    ],
+    "total": 10794
+  },
+  {
+    "customer": {
+      "fullName": "lucky",
+      "email": "suswara@gmail.com",
+      "address": "Hyderabad, abc colony",
+      "city": "Hyderabad",
+      "zip": "500054"
+    },
+    "paymentMethod": "card",
+    "items": [
+      {
+        "productId": "bag-women",
+        "name": "Stylish Women Bag",
+        "quantity": 1,
+        "price": 699
+      },
+      {
+        "productId": "charger",
+        "name": "Wireless Charger",
+        "quantity": 1,
+        "price": 499
+      }
+    ],
+    "total": 1198
   }
 ]
