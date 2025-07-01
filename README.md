@@ -1,75 +1,74 @@
 
 ```markdown
-# 🛒 RiiMart – E-Commerce Shopping Cart Web App
+# RiiMart – E-Commerce Shopping Cart Web App
 
-Welcome to **RiiMart**, a full-stack e-commerce web application built using modern web technologies and DevOps practices.
+RiiMart is a full-stack e-commerce web application developed using modern web technologies and DevOps practices.
 
 ---
 
-## 📌 Project Overview
+## Project Overview
 
-RiiMart is a feature-rich shopping cart website that allows users to:
-- Register and login
-- Browse products
-- Add to cart and checkout
-- Simulate transactions
-- View their previous orders
-- Logout securely
+RiiMart allows users to:
+- Register and log in
+- Browse and view products
+- Add items to a cart
+- Checkout and simulate transactions
+- View previous orders
+- Log out securely
 
 ---
 
 ## Live Demo
 
-| Component | Hosted Link |
-|----------|-------------|
-|  Project Access | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
-| ⚙ Backend (Render) | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
-| 🖥 Frontend (Netlify) | [https://jolly-melomakarona-49026a.netlify.app/](https://jolly-melomakarona-49026a.netlify.app/) |
+| Component       | Hosted Link                                                                 |
+|------------------|------------------------------------------------------------------------------|
+| GitHub Pages     | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
+| Backend (Render) | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
+| Frontend (Netlify) | [https://jolly-melomakarona-49026a.netlify.app/](https://jolly-melomakarona-49026a.netlify.app/) |
 
 ---
 
-##  Tech Stack
+## Tech Stack
 
-###  Frontend
+### Frontend
 - HTML5, CSS3, JavaScript
 - DOM manipulation
-- LocalStorage for session/cart
-- Hosted via GitHub Pages / Netlify
+- LocalStorage for session and cart data
+- Hosted via GitHub Pages and Netlify
 
 ### Backend
 - Node.js
 - Express.js
-- REST APIs (users, products, orders)
+- RESTful APIs for users, products, and orders
 - File-based data storage using JSON
 - CORS enabled
 
-###  Testing & Dev Tools
-- **Postman** – API testing (`/api/users`, `/api/orders`, `/api/products`)
-- **Git & GitHub** – version control and deployment
-- **Docker** – containerization for local development
-- **Netlify** – frontend deployment
-- **Render** – backend deployment
+### Dev Tools
+- Postman – API testing
+- Git & GitHub – version control and deployment
+- Docker – local containerized testing (optional)
+- Render – backend deployment
+- Netlify – alternative frontend deployment
 
 ---
 
-##  Folder Structure
+## Folder Structure
 
 ```
 
 E-commerce/
+├── Backend/
+│   ├── routes/
+│   ├── data/
+│   └── server.js
 │
-├── Backend/                 # Node.js backend files
-│   ├── routes/             # Route files for APIs
-│   ├── data/               # JSON files (users, orders)
-│   └── server.js           # Main backend server
+├── docs/
+│   ├── index.html
+│   ├── \*.html (login, register, etc.)
+│   ├── css/
+│   └── js/
 │
-├── docs/                   # Frontend files (for GitHub Pages)
-│   ├── index.html          # Home page
-│   ├── \*.html              # Other pages (login, register, etc.)
-│   ├── css/                # Stylesheets
-│   └── js/                 # JavaScript files
-│
-├── Dockerfile              # Backend Dockerfile
+├── Dockerfile
 ├── docker-compose.yml
 ├── README.md
 └── .gitignore
@@ -78,23 +77,22 @@ E-commerce/
 
 ---
 
-## Core Features
+## Features
 
--  User Authentication (Register/Login/Logout)
--  Add to Cart & Remove Items
--  Checkout with payment form
--  Transaction confirmation
--  My Orders page (user-specific)
--  Session maintained using LocalStorage
--  API testing with **Postman**
+- User registration and login
+- Add to cart and remove from cart
+- Checkout and transaction simulation
+- My Orders page to track past orders
+- Persistent cart using LocalStorage
+- API testing via Postman
 
 ---
 
-##  Docker Setup
+## Docker
 
-You can run both frontend and backend in Docker containers locally for isolated testing.
+Use Docker for local containerized deployment.
 
-###  Backend Dockerfile
+### Backend Dockerfile
 
 ```Dockerfile
 FROM node:18-alpine
@@ -116,7 +114,7 @@ EXPOSE 80
 
 ---
 
-##  How to Run Locally
+## Running the Project Locally
 
 ### Backend
 
@@ -126,25 +124,25 @@ npm install
 node server.js
 ```
 
-###  Frontend
+### Frontend
 
-Open `docs/index.html` in browser
-**OR**
-Use Docker to serve via nginx
+Open `docs/index.html` in a browser
+OR
+Use Docker to serve using the frontend Dockerfile
 
 ---
 
-##  API Testing with Postman
+## API Endpoints (Postman Ready)
 
-| Endpoint              | Method | Description             |
-| --------------------- | ------ | ----------------------- |
-| `/api/users/register` | POST   | Register new user       |
-| `/api/users/login`    | POST   | Login existing user     |
-| `/api/orders/`        | POST   | Submit an order         |
-| `/api/orders/:email`  | GET    | Fetch orders by email   |
-| `/api/products`       | GET    | Product list (test API) |
+| Endpoint              | Method | Description              |
+| --------------------- | ------ | ------------------------ |
+| `/api/users/register` | POST   | Register a new user      |
+| `/api/users/login`    | POST   | Log in an existing user  |
+| `/api/orders/`        | POST   | Submit a new order       |
+| `/api/orders/:email`  | GET    | Retrieve orders by email |
+| `/api/products`       | GET    | Get product list (test)  |
 
- All routes were tested using **Postman** for validation and response status.
+````
 
 ---
 
