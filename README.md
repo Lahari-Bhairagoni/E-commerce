@@ -1,111 +1,125 @@
-# E-commerce
-# 🛒 RiiMart - E-Commerce Web App
 
-**RiiMart** is a modern and minimal e-commerce website designed for Gen Z shoppers. It offers a smooth online shopping experience with essential features like user authentication, product browsing, cart management, checkout, and order tracking.
+# 🛒 RiiMart - E-Commerce Web Application
 
+RiiMart is a responsive, full-stack e-commerce web app built using HTML, CSS, JavaScript (frontend) and Node.js + Express (backend). The application supports user authentication, product browsing, cart management, checkout with multiple payment options (Cash/Card/UPI), and order history tracking.
 
-##  Project Structure
+---
 
-E-commerce/
-├── Backend/
-│ ├── data/
-│ │ ├── products.json
-│ │ └── users.json
-│ ├── node_modules/
-│ ├── routes/
-│ │ ├── orders.js
-│ │ ├── products.js
-│ │ └── users.js
-│ ├── package.json
-│ ├── package-lock.json
-│ └── server.js
-├── css/
-│ └── style.css
-├── js/
-│ ├── cart.js
-│ └── cart.css
-├── cart.html
-├── checkout.html
-├── confirmation.html
-├── index.html
-├── login.html
-├── product.html
-├── products.html
-├── register.html
-└── transaction.html
+##  Live URLs
 
-
-## 🚀 Getting Started
-
-### Prerequisites
-
-- Node.js installed
-- Git
+- 🔗 **Frontend (Netlify)**: [https://your-netlify-site.netlify.app](https://your-netlify-site.netlify.app)
+- 🔗 **Backend (Render)**: [https://your-backend-url.onrender.com](https://your-backend-url.onrender.com)
+-  🔗 **You can access the project by using this link:**:
 
 
 ---
 
-## 🚀 How to Run the Project
+##  Features
 
-###  Backend (Node.js & Express)
+###  User Features
+-  Register & Login (JWT-based authentication)
+-  Dynamic Login/Logout toggle
+-  View and add products to cart
+-  Cart management with total calculation
+-  Checkout with:
+  - Cash on Delivery (direct redirect to confirmation)
+  - Card/UPI (redirect to secure transaction page)
+-  My Orders page – shows previous orders using email
+-  Confirmation page after successful order/payment
+-  Protected routes for placing orders (token required)
 
-1. **Open terminal** → Navigate to backend folder:
-   cd E-commerce/Backend
-   
-2. Install required packages:
-     npm install
+###  Admin/Dev Features
+-  Orders and users stored in `data/orders.json` and `data/users.json`
+-  Dockerized frontend (served via Nginx)
+-  Backend hosted on Render
+-  Frontend deployed via Netlify (and Docker locally)
 
-3. Start the server:
-     node server.js
-Server will run on: http://localhost:5000
+---
 
-You can access the project by using this link: https://lahari-bhairagoni.github.io/E-commerce/
+##  Technologies Used
 
-The backend uses .json files (products.json, users.json) for data storage instead of a database.
+###  Frontend:
+- HTML5, CSS3
+- JavaScript (Vanilla)
+- Responsive Design
+- LocalStorage for session/cart management
 
-**Frontend**
-Go to the root directory (E-commerce/).
+###  Backend:
+- Node.js
+- Express.js
+- JWT (jsonwebtoken) for login protection
+- File-based storage using JSON (no DB used)
 
-Open index.html in any browser.
+###  DevOps / Deployment:
+- **Docker** (Nginx for frontend)
+- **Render** for backend deployment
+- **Netlify** for frontend deployment
+- **GitHub** for version control
 
-Navigate the site using:
+---
 
-Home → index.html
+##  Folder Structure
 
-Products → products.html
+```
 
-Cart → cart.html
+E-commerce/
+├── Backend/
+│   ├── data/
+│   ├── routes/
+│   ├── server.js
+├── Frontend/
+│   ├── index.html
+│   ├── checkout.html
+│   ├── transaction.html
+│   ├── confirmation.html
+│   ├── myorders.html
+│   ├── login.html
+│   ├── register.html
+│   ├── products.html
+│   ├── js/
+│   └── css/
+├── Dockerfile
+├── docker-compose.yml
+└── README.md
 
-Checkout → checkout.html
+````
 
-Login/Register → login.html, register.html
+---
 
-The frontend interacts with backend APIs to register users, place orders, etc.
+##  How to Run Locally
 
- Features
-  * User Authentication (Login/Register)
-  * Cart System (Add, View, Remove Items)
-  * Checkout & Order Summary
-  * Transaction Confirmation Page
-  * Local JSON as database alternative
-  * Modular Express Routes
+###  Frontend (Docker):
+```bash
+# Build image
+docker build -t riimart-frontend .
 
-Technologies Used
- * Frontend: HTML, CSS, JavaScript
- * Responsive Design :Optimized for desktops and mobiles
- * Backend: Node.js, Express.js
- * API testing : postman
- * Data Storage: JSON files (users.json, products.json)
- * Dev Tools: Git, GitHub, VS Code
+# Run container
+docker run -d -p 8080:80 riimart-frontend
+````
 
-Future Enhancements:
-* Admin dashboard for product/inventory control
+Visit: `http://localhost:8080`
 
-* Payment gateway integration (like Razorpay/Stripe)
 
-* Email notifications for order confirmation
 
-* Rating/review system for products
- 
-* Responsive design polish
+###  Backend (Node.js)
+
+```bash
+cd Backend
+npm install
+node server.js
+```
+
+Visit: `http://localhost:5000/api/orders`
+
+
+
+##  API Endpoints
+
+* `POST /api/users/register` – Register new user
+* `POST /api/users/login` – Login and get token
+* `POST /api/orders` – Place new order (requires token)
+* `GET /api/orders/:email` – Get orders by email
+
+
+
 
