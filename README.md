@@ -1,13 +1,10 @@
-
-
-```markdown
-#RiiMart – E-Commerce Shopping Cart Web App
+# RiiMart – E-Commerce Shopping Cart Web App
 
 RiiMart is a full-stack e-commerce web application developed using modern web technologies and DevOps practices.
 
 ---
 
-##Project Overview
+## Project Overview
 
 RiiMart allows users to:
 - Register and log in
@@ -19,32 +16,31 @@ RiiMart allows users to:
 
 ---
 
-##Live Demo
+## Live Demo
 
-| Component          | Hosted Link                                                                 |
-|--------------------|------------------------------------------------------------------------------|
-| GitHub Pages       | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
-| Backend (Render)   | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
-| Frontend (Netlify) | [https://jolly-melomakarona-49026a.netlify.app/](https://jolly-melomakarona-49026a.netlify.app/) |
+| Component         | Hosted Link                                                                 |
+|------------------|------------------------------------------------------------------------------|
+| GitHub Pages      | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
+| Backend (Render)  | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
+| Frontend (Netlify)| [https://jolly-melomakarona-49026a.netlify.app/](https://jolly-melomakarona-49026a.netlify.app/) |
 
----
 
-##Tech Stack
+##  Tech Stack
 
-###Frontend
+###  Frontend
 - HTML5, CSS3, JavaScript
 - DOM manipulation
 - LocalStorage for session and cart data
 - Hosted via GitHub Pages and Netlify
 
-###Backend
+###  Backend
 - Node.js
 - Express.js
 - RESTful APIs for users, products, and orders
 - File-based data storage using JSON
 - CORS enabled
 
-### Dev Tools
+###  Dev Tools
 - Postman – API testing
 - Git & GitHub – version control and deployment
 - Docker – local containerized testing (optional)
@@ -53,46 +49,48 @@ RiiMart allows users to:
 
 ---
 
-##Folder Structure
+##  Folder Structure
+
+
 
 ```
 
 E-commerce/
 ├── Backend/
-│   ├── routes/
-│   ├── data/
-│   └── server.js
+│ ├── routes/
+│ ├── data/
+│ └── server.js
 │
-├── docs/
-├── index.html
-├── \*.html (login, register, etc.)
-├── css/
-├── js/
-├── Dockerfile
+├── docs/ # Frontend files for GitHub Pages
+│ ├── index.html
+│ ├── *.html (login, register, cart, etc.)
+│ ├── css/
+│ └── js/
+│
+├── Dockerfile # Backend Dockerfile
 ├── docker-compose.yml
 ├── README.md
 └── .gitignore
 
 ````
 
+
+##  Features
+
+-  User registration and login
+-  Add to cart and remove from cart
+-  Checkout and transaction simulation
+-  My Orders page to track past orders
+-  Persistent cart using LocalStorage
+-  API testing via Postman
+
 ---
 
-##Features
+##  Docker Setup
 
-- User registration and login
-- Add to cart and remove from cart
-- Checkout and transaction simulation
-- My Orders page to track past orders
-- Persistent cart using LocalStorage
-- API testing via Postman
+Use Docker for local containerized deployment of backend and frontend.
 
----
-
-##Docker
-
-Use Docker for local containerized deployment.
-
-###Backend Dockerfile
+###  Backend Dockerfile
 
 ```Dockerfile
 FROM node:18-alpine
@@ -101,7 +99,7 @@ COPY Backend/ .
 RUN npm install
 EXPOSE 5000
 CMD ["node", "server.js"]
-````
+
 
 ### Frontend Dockerfile
 
