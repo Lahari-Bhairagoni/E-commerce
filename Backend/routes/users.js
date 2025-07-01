@@ -2,7 +2,6 @@ const express = require("express");
 const fs = require("fs");
 const router = express.Router();
 
-// LOGIN ROUTE
 router.post("/login", (req, res) => {
   console.log("📥 Login request received:", req.body);
 
@@ -23,7 +22,7 @@ router.post("/login", (req, res) => {
   }
 });
 
-// REGISTER ROUTE
+
 router.post("/register", (req, res) => {
   console.log("📥 Register request received:", req.body);
 

@@ -241,76 +241,82 @@
     renderCartSummary();
 
     async function placeOrder() {
-      // Clear message
-      messageElem.textContent = "";
+  // Clear message
+  messageElem.textContent = "";
 
-      // Validate form fields
-      const fullName = document.getElementById("fullName").value.trim();
-      const email = document.getElementById("email").value.trim();
-      const address = document.getElementById("address").value.trim();
-      const city = document.getElementById("city").value.trim();
-      const zip = document.getElementById("zip").value.trim();
-      const paymentMethod = document.getElementById("paymentMethod").value;
+  // Validate form fields
+  const fullName = document.getElementById("fullName").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const address = document.getElementById("address").value.trim();
+  const city = document.getElementById("city").value.trim();
+  const zip = document.getElementById("zip").value.trim();
+  const paymentMethod = document.getElementById("paymentMethod").value;
 
-      if (!fullName || !email || !address || !city || !zip || !paymentMethod) {
-        messageElem.textContent = "Please fill all required fields.";
-        messageElem.style.color = "red";
-        return;
+  if (!fullName || !email || !address || !city || !zip || !paymentMethod) {
+    messageElem.textContent = "Please fill all required fields.";
+    messageElem.style.color = "red";
+    return;
+  }
+
+  if (cart.length === 0) {
+    messageElem.textContent = "Your cart is empty.";
+    messageElem.style.color = "red";
+    return;
+  }
+
+  const order = {
+    customer: { fullName, email, address, city, zip },
+    paymentMethod,
+    items: cart.map(item => ({
+      productId: item.id,
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price
+    })),
+    total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
+  };
+
+  try {
+    const res = await fetch("http://192.168.43.153:5000/api/orders", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${token}`
+      },
+      body: JSON.stringify(order)
+    });
+
+    const data = await res.json();
+
+    if (res.ok) {
+      messageElem.textContent = "✅ Order placed successfully!";
+      messageElem.style.color = "green";
+
+      // Save order info in localStorage for transaction page if needed
+      localStorage.setItem("currentOrder", JSON.stringify({
+        orderId: data.orderId || null,  // adjust based on backend response
+        total: order.total,
+        paymentMethod
+      }));
+
+      if (paymentMethod === "cod") {
+        // For Cash on Delivery: clear cart, go directly to confirmation
+        localStorage.removeItem("riimart_cart");
+        window.location.href = "confirmation.html";
+      } else {
+        // For Card/UPI: redirect to transaction page for payment
+        window.location.href = "transaction.html";
       }
-
-      if (cart.length === 0) {
-        messageElem.textContent = "Your cart is empty.";
-        messageElem.style.color = "red";
-        return;
-      }
-
-      // Build order object
-      const order = {
-        customer: {
-          fullName,
-          email,
-          address,
-          city,
-          zip,
-        },
-        paymentMethod,
-        items: cart.map(item => ({
-          productId: item.id,
-          name: item.name,
-          quantity: item.quantity,
-          price: item.price
-        })),
-        total: cart.reduce((sum, item) => sum + item.price * item.quantity, 0),
-      };
-
-      try {
-        const res = await fetch("https://e-commerce-shopping-cart-rc7k.onrender.com/api/orders", {
-
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
-          },
-          body: JSON.stringify(order)
-        });
-
-        const data = await res.json();
-
-        if (res.ok) {
-          messageElem.textContent = "✅ Order placed successfully!";
-          messageElem.style.color = "green";
-          window.location.href = "transaction.html";
-
-
-        } else {
-          messageElem.textContent = "❌ " + (data.message || "Order failed.");
-          messageElem.style.color = "red";
-        }
-      } catch (err) {
-        messageElem.textContent = "❌ Server error. Please try again later.";
-        messageElem.style.color = "red";
-      }
+    } else {
+      messageElem.textContent = "❌ " + (data.message || "Order failed.");
+      messageElem.style.color = "red";
     }
+  } catch (err) {
+    messageElem.textContent = "❌ Server error. Please try again later.";
+    messageElem.style.color = "red";
+  }
+}
+
   </script>
 </body>
 </html>

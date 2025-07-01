@@ -1,4 +1,4 @@
-/* Ocean Blue & Sand Palette */
+
 :root {
   --primary: #0077b6;
   --secondary: #00b4d8;
@@ -19,7 +19,7 @@ body {
   color: var(--text);
 }
 
-/* NAVBAR */
+
 .navbar {
   display: flex;
   justify-content: space-between;

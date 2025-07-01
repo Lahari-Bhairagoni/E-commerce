@@ -6,7 +6,6 @@
   <title>RiiMart - Cart</title>
   <link rel="stylesheet" href="cart.css" />
   <style>
-    /* Updated Header to match index.html */
     .header {
       background-color: #004e89;
       padding: 20px;
@@ -42,7 +41,6 @@
       border-bottom: 2px solid #fcd581;
     }
 
-    /* Proceed button override */
     .proceed-btn {
       background-color: #004e89 !important;
       color: white !important;
@@ -53,10 +51,9 @@
       color: #fcd581 !important;
     }
 
-    /* Footer updated to match index.html */
     .footer {
-      background-color: #004e89 !important;
-      color: white !important;
+      background-color: #004e89;
+      color: white;
       text-align: center;
       padding: 1rem 0;
       margin-top: 3rem;
@@ -72,16 +69,16 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="products.html" class="nav-link">Products</a>
         <a href="cart.html" class="nav-link active">Cart 🛒</a>
-        <a href="login.html" class="nav-link">Login</a>
+        <a href="login.html" class="nav-link" id="loginLink">Login</a>
+        <a href="#" class="nav-link" id="logoutLink" style="display: none;">Logout</a>
+        <a href="myorders.html" class="nav-link">My Orders</a>
       </nav>
     </div>
   </header>
 
   <main class="cart-main container">
     <h2>Your Shopping Cart</h2>
-    <div id="cart-items" class="cart-items">
-      <!-- Cart items dynamically inserted here -->
-    </div>
+    <div id="cart-items" class="cart-items"></div>
 
     <div class="cart-summary">
       <p><strong>Total Items:</strong> <span id="total-items">0</span></p>
@@ -95,5 +92,21 @@
   </footer>
 
   <script src="cart.js"></script>
+  <script>
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      document.getElementById("logoutLink").style.display = "inline-block";
+      document.getElementById("loginLink").style.display = "none";
+    }
+
+    document.getElementById("logoutLink").addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.removeItem("token");
+      localStorage.removeItem("userEmail");
+      alert("Logged out successfully!");
+      window.location.href = "login.html";
+    });
+  </script>
 </body>
 </html>

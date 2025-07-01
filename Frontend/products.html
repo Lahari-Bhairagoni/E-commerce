@@ -183,7 +183,9 @@
         <a href="index.html" class="nav-link">Home</a>
         <a href="products.html" class="nav-link active">Products</a>
         <a href="cart.html" class="nav-link"><i class="fas fa-shopping-cart"></i> Cart</a>
-        <a href="login.html" class="nav-link"><i class="fas fa-user"></i> Login</a>
+        <a href="login.html" class="nav-link" id="loginLink"><i class="fas fa-user"></i> Login</a>
+<a href="#" class="nav-link" id="logoutLink" style="display: none;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+
       </nav>
     </div>
   </header>
@@ -313,6 +315,20 @@
   categoryFilter.addEventListener("change", applyFilters);
   priceFilter.addEventListener("change", applyFilters);
   searchInput.addEventListener("input", applyFilters);
+  const token = localStorage.getItem("token");
+
+  if (token) {
+    document.getElementById("logoutLink").style.display = "inline-block";
+    document.getElementById("loginLink").style.display = "none";
+  }
+
+  document.getElementById("logoutLink").addEventListener("click", function (e) {
+    e.preventDefault();
+    localStorage.removeItem("token");
+    localStorage.removeItem("userEmail");
+    alert("Logged out successfully!");
+    window.location.href = "login.html";
+  });
 </script>
 </body>
 </html>

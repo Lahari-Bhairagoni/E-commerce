@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>My Orders - RiiMart</title>
+  <link rel="stylesheet" href="cart.css" />
+  <style>
+    .header {
+      background-color: #004e89;
+      padding: 20px;
+      color: white;
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .nav {
+      display: flex;
+      gap: 20px;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    .nav-link.active,
+    .nav-link:hover {
+      border-bottom: 2px solid #fcd581;
+    }
+
+    .order-container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: #004e89;
+    }
+
+    .order {
+      border-bottom: 1px solid #ccc;
+      margin-bottom: 1.5rem;
+      padding-bottom: 1rem;
+    }
+
+    .order h3 {
+      margin-bottom: 0.5rem;
+    }
+
+    .order-item {
+      padding-left: 1rem;
+    }
+
+    .footer {
+      background-color: #004e89;
+      color: white;
+      text-align: center;
+      padding: 1rem 0;
+      margin-top: 3rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <h1 class="logo">RiiMart</h1>
+      <nav class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="products.html" class="nav-link">Products</a>
+        <a href="cart.html" class="nav-link">Cart 🛒</a>
+        <a href="myorders.html" class="nav-link active">My Orders</a>
+        <a href="login.html" class="nav-link" id="loginLink">Login</a>
+        <a href="#" class="nav-link" id="logoutLink" style="display: none;">Logout</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="order-container">
+    <h2>Your Orders</h2>
+    <div id="orders-list">Loading...</div>
+  </main>
+
+  <footer class="footer">
+    <p>&copy; 2025 RiiMart. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const token = localStorage.getItem("token");
+    const userEmail = localStorage.getItem("userEmail");
+
+    if (token) {
+      document.getElementById("logoutLink").style.display = "inline-block";
+      document.getElementById("loginLink").style.display = "none";
+    }
+
+    document.getElementById("logoutLink").addEventListener("click", function (e) {
+      e.preventDefault();
+      localStorage.removeItem("token");
+      localStorage.removeItem("userEmail");
+      alert("Logged out successfully!");
+      window.location.href = "login.html";
+    });
+
+    if (!userEmail || !token) {
+      alert("Please login to view your orders.");
+      window.location.href = "login.html";
+    }
+
+    fetch(`http://192.168.43.153:5000/api/orders/${userEmail}`)
+      .then(async res => {
+        let data;
+        try {
+          data = await res.json();
+        } catch (err) {
+          console.error("❌ Failed to parse JSON:", err);
+          document.getElementById("orders-list").textContent = "Server error.";
+          return;
+        }
+
+        if (!res.ok) {
+          console.error("❌ Server returned error:", data.message || res.statusText);
+          document.getElementById("orders-list").textContent = "Failed to load orders.";
+          return;
+        }
+
+        const container = document.getElementById("orders-list");
+
+        if (data.length === 0) {
+          container.innerHTML = "<p>No orders found.</p>";
+          return;
+        }
+
+        container.innerHTML = "";
+
+        data.forEach((order, index) => {
+          const div = document.createElement("div");
+          div.classList.add("order");
+          div.innerHTML = `
+            <h3>Order #${index + 1}</h3>
+            <p><strong>Total:</strong> ₹${order.total.toFixed(2)}</p>
+            <p><strong>Payment Method:</strong> ${order.paymentMethod}</p>
+            <p><strong>Shipping To:</strong> ${order.customer.fullName}, ${order.customer.city}</p>
+            <div class="order-items">
+              ${order.items.map(item => `
+                <div class="order-item">• ${item.name} x${item.quantity} (₹${item.price})</div>
+              `).join("")}
+            </div>
+          `;
+          container.appendChild(div);
+        });
+      })
+      .catch(err => {
+        console.error("❌ Error fetching orders:", err);
+        document.getElementById("orders-list").textContent = "Error fetching orders.";
+      });
+  </script>
+</body>
+</html>
