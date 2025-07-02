@@ -21,7 +21,7 @@ RiiMart allows users to:
 | Component         | Hosted Link                                                                 |
 |------------------|------------------------------------------------------------------------------|
 | GitHub Pages      | [https://lahari-bhairagoni.github.io/E-commerce/](https://lahari-bhairagoni.github.io/E-commerce/) |
-| Backend (Render)  | [https://e-commerce-shopping-cart-rc7k.onrender.com](https://e-commerce-shopping-cart-rc7k.onrender.com) |
+| Backend (Render)  | [https://e-commerce-7boq.onrender.com/](https://e-commerce-7boq.onrender.com/) |
 | Frontend (Netlify)| [https://jolly-melomakarona-49026a.netlify.app/](https://jolly-melomakarona-49026a.netlify.app/) |
 
 
